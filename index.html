@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/style.css">
     <title>Rainbow Animation</title>
 </head>
 <body>
@@ -12,8 +13,19 @@
         <span class="mdc-button__label">ENABLE WEBCAM</span>
     </button>
 
-    <video id="webcam" style="width: 1280px; height: 720px; position: abso" autoplay playsinline></video>
-    <canvas id="output_canvas"></canvas>
+    <div id="videoInOut">
+        <video id="webcam" style="width: 1280px; height: 720px;" autoplay playsinline></video>
+        <canvas id="output_canvas"></canvas>
+    </div>
+
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+        <path class="rainbow-line" style="fill: none; stroke: #db3c34; stroke-width: 15; stroke-linecap: round; stroke-linejoin: miter; stroke-miterlimit: 4;" d="M50 250 A200 200 0 0 1 450 250" />
+        <path class="rainbow-line" style="fill: none; stroke: #f9a800; stroke-width: 15; stroke-linecap: round; stroke-linejoin: miter; stroke-miterlimit: 4;" d="M70 250 A180 180 0 0 1 430 250" />
+        <path class="rainbow-line" style="fill: none; stroke: #f9e800; stroke-width: 15; stroke-linecap: round; stroke-linejoin: miter; stroke-miterlimit: 4;" d="M90 250 A160 160 0 0 1 410 250" />
+        <path class="rainbow-line" style="fill: none; stroke: #a8e800; stroke-width: 15; stroke-linecap: round; stroke-linejoin: miter; stroke-miterlimit: 4;" d="M110 250 A140 140 0 0 1 390 250" />
+        <path class="rainbow-line" style="fill: none; stroke: #0093e8; stroke-width: 15; stroke-linecap: round; stroke-linejoin: miter; stroke-miterlimit: 4;" d="M130 250 A120 120 0 0 1 370 250" />
+        <path class="rainbow-line" style="fill: none; stroke: #9d5de2; stroke-width: 15; stroke-linecap: round; stroke-linejoin: miter; stroke-miterlimit: 4;" d="M150 250 A100 100 0 0 1 350 250" />
+    </svg>
 
     <h1>Test Rainbow</h1>
     
@@ -26,6 +38,8 @@
     <script type="module" src="src/js/mediapipe/global.js"></script>
 
     <script src="src/js/mediapipe/arm_progress.js"></script>
+
+    <script src="src/js/scene/rainbows/svg.js"></script>
 
 </body>
 </html>
