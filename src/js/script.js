@@ -12,7 +12,7 @@ image.addEventListener('click', () => {
   const screenHeight = window.innerHeight;
 
   const centerX = rect.left + rect.width / 2;
-  const baseY = rect.top + rect.height - 10; // Ajuste pour commencer légèrement au-dessus du bas
+  const baseY = rect.top + rect.height - 220; // Ajuste pour commencer légèrement au-dessus du bas
 
   container.innerHTML = "";
 
@@ -23,12 +23,13 @@ image.addEventListener('click', () => {
     container.appendChild(span);
 
     // Limite de la trajectoire pour les mots
-    const maxL = Math.min(screenWidth / 2 - 50, 300); // Limite horizontale
-    const maxC = Math.min(screenHeight / 2, 200);     // Limite verticale
+   const maxL = Math.min(screenWidth / 2 - 50, 300);  // Limite horizontale
+  const maxC = Math.min(screenHeight / 2, 400);     // Limite verticale plus grande
 
-    const l = (Math.random() * 2 - 1) * maxL; // entre -maxL et +maxL
-    const c = Math.random() * maxC;           // entre 0 et maxC
-    const a = -4 * c / (l * l);                // coefficient parabolique
+  const l = (Math.random() * 2 - 1) * maxL;  // Entre -maxL et +maxL
+  const c = Math.random() * maxC;            // Valeur plus grande pour une parabole plus haute
+
+  const a = -2 * c / (l * l);                 // Moins de valeur négative pour éviter d'être trop serré
 
     let t = 0;
 
