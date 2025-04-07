@@ -31,25 +31,24 @@
       const c = Math.random() * maxC;          // entre 0 et maxC
       const a = -4 * c / (l * l);               // coefficient parabolique
 
-      let t = 0; // va de 0 à 1
+     let t = 0;
 
-      span.style.opacity = 1;
+const animate = () => {
+  t += 0.01;
 
-      const animate = () => {
-        t += 0.01;
+  const x = (t - 0.5) * 2 * l; // DE -l à +l
+  const y = calculateY(x, a, c, baseY);
 
-        const x = t * l;
-        const y = calculateY(x, a, c, baseY);
+  span.style.left = `${centerX + x}px`;
+  span.style.top = `${y}px`;
 
-        span.style.left = `${centerX + x}px`;
-        span.style.top = `${y}px`;
+  if (t < 1) {
+    requestAnimationFrame(animate);
+  } else {
+    span.style.opacity = 0;
+  }
+};
 
-        if (t < 1) {
-          requestAnimationFrame(animate);
-        } else {
-          span.style.opacity = 0;
-        }
-      };
 
       animate();
     });
