@@ -1,7 +1,7 @@
 
   const image = document.getElementById('image');
   const container = document.getElementById('container');
-  const words = ["Magique", "Créativité", "Pixel", "Onde", "Inspiration", "Liberté"];
+  const words = ["Woaw", "Man !", "Wow", "Whoa", "Woahohoho", "OMG", "Wooooooow", "Aaaaaaahaaahaaaa", "Woawwwwww", "Hoooooo", "Yeaaaaaah", "Look at that"];
 
   const calculateY = (x, a, c, baseY) => {
     return baseY - (a * Math.pow(x, 2) + c); // y commence en bas et monte (haut = 0)
