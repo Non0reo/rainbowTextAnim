@@ -1,9 +1,17 @@
   * {
       box-sizing: border-box;
     }
+
     body {
       margin: 0;
       padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
       height: 100%;
       overflow: hidden;
       font-family: sans-serif;
@@ -49,3 +57,53 @@
       border: 5px solid black; /* Contour noir autour de la div */
       z-index: 1; /* Assure que l'image est en dessous de la div de clic */
     }
+
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#videoInOut {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* transform: translate(-50%, -50%); */
+}
+
+#videoInOut * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* transform: translate(-50%, 0); */
+}
+
+
+
+
+
+/* SVGs */
+
+.rainbowLine {
+    stroke-dasharray: 822;
+    stroke-dashoffset: 822;
+    animation: dash 5s linear alternate infinite;
+}
+
+
+@keyframes dash {
+    from {
+        stroke-dashoffset: 822;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
