@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,7 @@
     <title>Rainbow Animation</title>
 </head>
 <body>
+    <div id="background">
 
     <button id="webcamButton" class="mdc-button mdc-button--raised">
         <span class="mdc-button__ripple"></span>
@@ -32,11 +33,16 @@
     </svg>
 
     <h1>Test Rainbow</h1>
-    
-    <div id="background">
+    <div id="container"></div>
 
+    <div id="image-wrapper">
+        <div id="image"></div>
+        <img id="ccss" src="image/en_png/plan_1.png" alt="Image mignonne">
     </div>
+</div>
 
+      
+    <script src="src/js/script.js"></script>
     
     <script type="module" src="src/js/mediapipe/detection.js"></script>
     <script type="module" src="src/js/mediapipe/global.js"></script>
