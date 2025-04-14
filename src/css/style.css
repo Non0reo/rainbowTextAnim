@@ -43,7 +43,11 @@
     }
 
     #ccss {
-      width: 110rem;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      /* width: 110rem; */
       cursor: pointer;
     }
 
