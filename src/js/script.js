@@ -2,8 +2,9 @@ const image = document.getElementById('image');
 const container = document.getElementById('container');
 const words = ["Woaw", "Man !", "Wow", "Whoa", "Woahohoho", "OMG", "Wooooooow", "Aaaaaaahaaahaaaa", "Woawwwwww", "Hoooooo", "Yeaaaaaah", "Look at that"];
 
+// Fonction pour calculer la trajectoire parabolique
 const calculateY = (x, a, c, baseY) => {
-  return baseY - (a * Math.pow(x, 2) + c); // y commence en bas et monte
+  return baseY - (a * Math.pow(x, 2) + c);
 };
 
 image.addEventListener('click', () => {
@@ -11,16 +12,31 @@ image.addEventListener('click', () => {
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
 
-  const centerX = rect.left + rect.width / 2;
-  const baseY = rect.top + rect.height - 220; // Ajuste pour commencer légèrement au-dessus du bas
+  const centerX = rect.left + rect.width / 2; // Centre horizontal de la div
+  const baseY = rect.top + rect.height / 2;  // Centre vertical de la div
 
-  container.innerHTML = "";
+  container.innerHTML = ""; // Réinitialise le conteneur
 
-  words.forEach((word, index) => {
-    const span = document.createElement('span');
-    span.className = 'word';
-    span.textContent = word;
-    container.appendChild(span);
+  // Choisir un mot au hasard dans la liste
+  const randomWord = words[Math.floor(Math.random() * words.length)];
+  const span = document.createElement('span');
+  span.className = 'word';
+  span.textContent = randomWord;
+  container.appendChild(span);
+
+
+  // Définir des seuils pour la largeur et la hauteur de la parabole
+  const minWidth = 100; // Largeur minimale de la parabole
+  const maxWidth = Math.min(screenWidth / 2 - 50, 300); // Largeur maximale visible
+  const minHeight = 50;  // Hauteur minimale de la parabole
+  const maxHeight = Math.min(screenHeight / 2, 400); // Hauteur maximale visible
+
+  // Générer une largeur et une hauteur aléatoires pour la parabole
+  const l_para = (Math.random() * (maxWidth - minWidth) + minWidth) * (Math.random() < 0.5 ? -1 : 1); // Gauche ou droite
+  const c_para = Math.random() * (maxHeight - minHeight) + minHeight; // Hauteur de la parabole
+  const a_para = -2 * c_para / (l_para * l_para); // Calcul du coefficient de la parabole
+
+  let t = 0;
 
     // Limite de la trajectoire pour les mots
     const maxL = Math.min(screenWidth / 2 - 50, 300);  // Limite horizontale
@@ -31,24 +47,25 @@ image.addEventListener('click', () => {
 
     const a = -2 * c / (l * l);                 // Moins de valeur négative pour éviter d'être trop serré
 
-    let t = 0;
 
-    const animate = () => {
-      t += 0.01;
+  const animate = () => {
+    t += 0.01;
 
-      const x = (t - 0.5) * 2 * l; // va de -l à +l
-      const y = calculateY(x, a, c, baseY);
+    const x = (t - 0.5) * 2 * l; // Mouvement horizontal
+    const y = calculateY(x, a, c, baseY); // Mouvement vertical
 
-      span.style.left = `${centerX + x}px`;
-      span.style.top = `${y}px`;
+    span.style.left = `${centerX + x}px`;
+    span.style.top = `${y}px`;
 
-      if (t < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        span.style.opacity = 0;
-      }
-    };
+    // Ajouter un effet d'opacité pour une disparition progressive
+    span.style.opacity = `${1 - t}`;
 
-    animate();
-  });
+    if (t < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      span.remove(); // Supprime l'élément une fois l'animation terminée
+    }
+  };
+
+  animate();
 });
