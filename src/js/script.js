@@ -24,6 +24,7 @@ image.addEventListener('click', () => {
   span.textContent = randomWord;
   container.appendChild(span);
 
+
   // Définir des seuils pour la largeur et la hauteur de la parabole
   const minWidth = 100; // Largeur minimale de la parabole
   const maxWidth = Math.min(screenWidth / 2 - 50, 300); // Largeur maximale visible
@@ -31,11 +32,21 @@ image.addEventListener('click', () => {
   const maxHeight = Math.min(screenHeight / 2, 400); // Hauteur maximale visible
 
   // Générer une largeur et une hauteur aléatoires pour la parabole
-  const l = (Math.random() * (maxWidth - minWidth) + minWidth) * (Math.random() < 0.5 ? -1 : 1); // Gauche ou droite
-  const c = Math.random() * (maxHeight - minHeight) + minHeight; // Hauteur de la parabole
-  const a = -2 * c / (l * l); // Calcul du coefficient de la parabole
+  const l_para = (Math.random() * (maxWidth - minWidth) + minWidth) * (Math.random() < 0.5 ? -1 : 1); // Gauche ou droite
+  const c_para = Math.random() * (maxHeight - minHeight) + minHeight; // Hauteur de la parabole
+  const a_para = -2 * c_para / (l_para * l_para); // Calcul du coefficient de la parabole
 
   let t = 0;
+
+    // Limite de la trajectoire pour les mots
+    const maxL = Math.min(screenWidth / 2 - 50, 300);  // Limite horizontale
+    const maxC = Math.min(screenHeight / 2, 400);     // Limite verticale plus grande
+
+    const l = (Math.random() * 2 - 1) * maxL;  // Entre -maxL et +maxL
+    const c = Math.random() * maxC;            // Valeur plus grande pour une parabole plus haute
+
+    const a = -2 * c / (l * l);                 // Moins de valeur négative pour éviter d'être trop serré
+
 
   const animate = () => {
     t += 0.01;
