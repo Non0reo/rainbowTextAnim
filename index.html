@@ -7,7 +7,7 @@
     <title>Rainbow Animation</title>
 </head>
 <body>
-    <div id="background">
+    <div id="background"></div>
 
     <button id="webcamButton" class="mdc-button mdc-button--raised">
         <span class="mdc-button__ripple"></span>
@@ -37,12 +37,12 @@
 
     <div id="image-wrapper">
         <div id="image"></div>
-        <img id="ccss" src="image/en_png/plan_1.png" alt="Image mignonne">
+        <object id="ccss" data="image/en_svg/plan_1.svg" alt="Image mignonne"></object>
     </div>
-</div>
+
 
       
-    <script src="src/js/script.js"></script>
+    <!-- <script src="src/js/script.js"></script> -->
     
     <script type="module" src="src/js/mediapipe/detection.js"></script>
     <script type="module" src="src/js/mediapipe/global.js"></script>
@@ -50,6 +50,8 @@
     <script src="src/js/mediapipe/arm_progress.js"></script>
 
     <script src="src/js/scene/rainbows/svg.js"></script>
+
+    <script src="src/js/scene/words/throw.js" defer></script>
 
 </body>
 </html>

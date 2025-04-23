@@ -15,7 +15,8 @@ function setLines() {
 
 
     rainbowLines.forEach((line) => {
-        line.style.strokeDashoffset = line.getTotalLength() - Math.min(line.getTotalLength() * progress, 1);
+
+        line.style.strokeDashoffset = line.getTotalLength() - Math.max(line.getTotalLength() * progress, 10);
         //textRainbow.setAttribute('startOffset', line.getTotalLength() * progress * 2);
         textRainbow.setAttribute('textLength', line.getTotalLength() * progress * 2);
         //textRainbow.textContent = Math.round(progress * 100) + "%";
