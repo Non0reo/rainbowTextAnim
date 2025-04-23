@@ -32,12 +32,23 @@ body {
   pointer-events: none; /* Empêche l'interaction avec les mots animés */
 }
 
+<<<<<<< HEAD
 #image-wrapper {
   position: absolute;
   bottom: -1rem;
   width: 100%;
   text-align: center;
 }
+=======
+    #ccss {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      /* width: 110rem; */
+      cursor: pointer;
+    }
+>>>>>>> Nolhan
 
 
 #ccss {
