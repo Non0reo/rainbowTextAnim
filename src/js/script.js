@@ -32,9 +32,9 @@ image.addEventListener('click', () => {
   const maxHeight = Math.min(screenHeight / 2, 400); // Hauteur maximale visible
 
   // Générer une largeur et une hauteur aléatoires pour la parabole
-  const l_para = (Math.random() * (maxWidth - minWidth) + minWidth) * (Math.random() < 0.5 ? -1 : 1); // Gauche ou droite
-  const c_para = Math.random() * (maxHeight - minHeight) + minHeight; // Hauteur de la parabole
-  const a_para = -2 * c_para / (l_para * l_para); // Calcul du coefficient de la parabole
+  const l = (Math.random() * (maxWidth - minWidth) + minWidth) * (Math.random() < 0.5 ? -1 : 1); // Gauche ou droite
+  const c = Math.random() * (maxHeight - minHeight) + minHeight; // Hauteur de la parabole
+  const a = -2 * c_para / (l_para * l_para); // Calcul du coefficient de la parabole
 
   let t = 0;
 
