@@ -10,7 +10,7 @@ image.addEventListener('click', () => {
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
 
-    const startPosition = screenHeight / 2;
+    const startPosition = screenWidth / 2;
     
     //new Word("Woaw", startPosition, endPosition(), 1000);
 
@@ -45,7 +45,10 @@ class Word {
         this.lastY = 0;
         this.x = 0;
         this.y = 0;
-        this.yOffset = window.innerHeight - image.getBoundingClientRect().top;
+        //this.yOffset = window.innerHeight - image.getBoundingClientRect().top;
+        this.yOffset = image.getBoundingClientRect().top;
+        console.log(window.innerHeight, image.getBoundingClientRect().top, this.yOffset);
+        //this.yOffset = 0;
         this.word = word;
         this.l1 = l1;
         this.l2 = l2;
@@ -79,7 +82,7 @@ class Word {
         this.y = this.calculateY(this.x);
 
         this.element.style.left = `${this.x}px`;
-        this.element.style.bottom = `${this.y + this.yOffset}px`;
+        this.element.style.bottom = `${this.y +  this.yOffset}px`;
 
         //rotate word using lastX and lastY
         const dx = this.x - this.lastX;
@@ -89,7 +92,7 @@ class Word {
 
         this.lastX = this.x;
         this.lastY = this.y;
-        this.element.style.opacity = 1 - this.t; // Fade out effect
+        this.element.style.opacity = 1 - this.t * 1.5; // Fade out effect
 
         if (this.t < 1) {
             window.requestAnimationFrame(this.animate.bind(this));
