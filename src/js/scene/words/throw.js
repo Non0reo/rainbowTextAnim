@@ -16,7 +16,7 @@ image.addEventListener('click', () => {
     const axeX = bbox.x + bbox.width / 2 ;
     const axeY = bbox.y + bbox.height / 2 ;
 
-    const startPosition = axeX ;
+    const startPosition = axeX, axeY ;
     
     //new Word("Woaw", startPosition, endPosition(), 1000);
 
