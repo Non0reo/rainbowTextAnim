@@ -56,16 +56,6 @@
       cursor: pointer;
     }
 
-    #image {
-      position: sticky;
-      left: 31rem;
-      width:7rem;
-      height: 13rem;
-      cursor: pointer;
-      border: 5px solid black; /* Contour noir autour de la div */
-      z-index: 1; /* Assure que l'image est en dessous de la div de clic */
-    }
-
 
 button {
     background-color: #4CAF50;
