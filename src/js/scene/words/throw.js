@@ -7,20 +7,19 @@ const words = ["Woaw", "Man !", "Wow", "Whoa", "Woahohoho", "OMG", "Wooooooow", 
 image.addEventListener('click', () => {
     console.log("click");
 
-   /* const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
-
-    const startPosition = screenWidth / 2; */
-
     const bbox = image.getBBox();
-    const axeX = bbox.x + bbox.width / 2 ;
-    const axeY = bbox.y + bbox.height / 2 ;
+    const screenWidth = bbox.x + bbox.width / 2 ;
+    const screenHeight =bbox.y + bbox.height / 2 ;
 
-    const startPosition = axeY ;
+    const startPosition = screenWidth; 
+
     
     //new Word("Woaw", startPosition, endPosition(), 1000);
 
-    /* for (let i = 0; i < words.length; i++) {
+    /*
+ const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+     for (let i = 0; i < words.length; i++) {
         const word = words[i];
         const l1 = startPosition;
         const l2 = startPosition + (Math.random() < 0.5 ? -1 : 1) * ((Math.random() * screenWidth * 3 / 4) + screenWidth / 4);
