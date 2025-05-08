@@ -4,7 +4,7 @@ const image = imageObject.contentDocument.getElementById('human');
 const container = document.getElementById('container');
 const words = ["Woaw", "Man !", "Wow", "Whoa", "Woahohoho", "OMG", "Wooooooow", "Aaaaaaahaaahaaaa", "Woawwwwww", "Hoooooo", "Yeaaaaaah", "Look at that"];
 
-image.addEventListener('click', () => {
+image.addEventListener('click', ( => {
     console.log("click");
 
     const rect = image.getBoundingClientRect();
