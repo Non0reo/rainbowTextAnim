@@ -28,6 +28,9 @@ image.addEventListener('click', () => {
         new Word(word, l1, l2, c);
     } */
 
+    console.log("screenWidth:", screenWidth, "screenHeight:", screenHeight);
+    console.log("startPosition:", startPosition, "endPosition:", l2);
+
     new Word(
         words[Math.floor(Math.random() * words.length)],
         startPosition,
