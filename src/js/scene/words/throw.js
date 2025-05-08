@@ -7,9 +7,9 @@ const words = ["Woaw", "Man !", "Wow", "Whoa", "Woahohoho", "OMG", "Wooooooow", 
 image.addEventListener('click', () => {
     console.log("click");
 
-    const bbox = image.getBBox();
-    const screenWidth = bbox.x + bbox.width / 2 ;
-    const screenHeight =bbox.y + bbox.height / 2 ;
+    const rect = image.getBoundingClientRect();
+    const screenWidth = rect.x + rect.width / 2 ;
+    const screenHeight =rect.y + rect.height / 2 ;
 
     const startPosition = screenWidth; 
 
