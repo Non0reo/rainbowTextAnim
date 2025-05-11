@@ -57,5 +57,18 @@ function animateText() {
   }, 5600); // Laisse le temps à l'explosion de se produire
 }
 
-// Ajoute un écouteur d'événement pour appeler la fonction au clic
-document.addEventListener('click', animateText);
+// Ajoute un écouteur d'événement global
+document.addEventListener('click', (event) => {
+  // Vérifie si le clic ne cible pas un bouton ou une zone spécifique
+  const target = event.target;
+
+  if (target.tagName === 'BUTTON' || target.classList.contains('ignore-click')) {
+    console.log("Clic ignoré sur un bouton ou une zone spécifique.");
+    return; // Ne fait rien si le clic est sur un bouton ou une zone à ignorer
+  }
+
+  // Appelle la fonction si le clic est dans une zone neutre
+  animateText(() => {
+    console.log("Animation terminée après un clic dans une zone neutre !");
+  });
+});
