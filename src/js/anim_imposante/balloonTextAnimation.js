@@ -10,7 +10,7 @@ function animateText() {
 
   // Crée un élément div pour afficher le texte
   const textElement = document.createElement('div');
-  textElement.innerText = "Ceci est une phrase animée !";
+  textElement.innerText = "Woaw ! That's so intense !";
   textElement.style.position = 'absolute';
   textElement.style.left = '50%';
   textElement.style.top = '50%';
