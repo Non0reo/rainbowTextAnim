@@ -1,0 +1,21 @@
+/* Styles de base pour centrer le contenu */
+#imposante_animation {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f8ff; /* Couleur de fond */
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  overflow: hidden; /* Empêche le débordement de l'animation */
+}
+
+/* Ajout d'autres styles globaux si nécessaire */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
