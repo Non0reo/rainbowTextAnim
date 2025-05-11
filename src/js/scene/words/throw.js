@@ -1,5 +1,8 @@
-const imageObject = document.getElementById('ccss');
-const image = imageObject.contentDocument.getElementById('human');
+let imageObject = document.getElementById('ccss');
+let image = imageObject.contentDocument.getElementById('human');
+
+console.log("imageObject, image");
+console.log(imageObject, image, "hey");
 
 const container = document.getElementById('container');
 const words = ["Woaw", "Man !", "Wow", "Whoa", "Woahohoho", "OMG", "Wooooooow", "Aaaaaaahaaahaaaa", "Woawwwwww", "Hoooooo", "Yeaaaaaah", "Look at that"];

@@ -2,8 +2,8 @@ let rainbowLines = document.querySelectorAll(".rainbow-line");
 const textRainbow = document.querySelector("#text-rainbow0");
 
 rainbowLines.forEach((line, i) => {
-    console.dir(line);
-    console.log(line.getTotalLength());
+    // console.dir(line);
+    // console.log(line.getTotalLength());
 
     line.style.strokeDasharray = line.getTotalLength();
     line.style.strokeDashoffset = line.getTotalLength();
