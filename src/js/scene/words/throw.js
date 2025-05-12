@@ -8,23 +8,12 @@ const container = document.getElementById('container');
 const words = ["Woaw", "Man !", "Wow", "Whoa", "Woahohoho", "OMG", "Wooooooow", "Aaaaaaahaaahaaaa", "Woawwwwww", "Hoooooo", "Yeaaaaaah", "Look at that"];
 
 image.addEventListener('click', () => {
-    console.log("click");
 
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
 
-    const startPosition = screenWidth / 2;
-    
-    //new Word("Woaw", startPosition, endPosition(), 1000);
-
-    /* for (let i = 0; i < words.length; i++) {
-        const word = words[i];
-        const l1 = startPosition;
-        const l2 = startPosition + (Math.random() < 0.5 ? -1 : 1) * ((Math.random() * screenWidth * 3 / 4) + screenWidth / 4);
-        const c = Math.random() * screenHeight / 2 + screenHeight / 4; // Valeur plus grande pour une parabole plus haute
-
-        new Word(word, l1, l2, c);
-    } */
+    //const startPosition = screenWidth / 2;
+    const startPosition = image.getBoundingClientRect().left + image.getBoundingClientRect().width / 2;
 
     new Word(
         words[Math.floor(Math.random() * words.length)],
@@ -50,7 +39,6 @@ class Word {
         this.y = 0;
         //this.yOffset = window.innerHeight - image.getBoundingClientRect().top;
         this.yOffset = image.getBoundingClientRect().top;
-        console.log(window.innerHeight, image.getBoundingClientRect().top, this.yOffset);
         //this.yOffset = 0;
         this.word = word;
         this.l1 = l1;
@@ -85,13 +73,13 @@ class Word {
         this.y = this.calculateY(this.x);
 
         this.element.style.left = `${this.x}px`;
-        this.element.style.bottom = `${this.y +  this.yOffset}px`;
+        this.element.style.bottom = `${this.y}px`;
 
         //rotate word using lastX and lastY
         const dx = this.x - this.lastX;
         const dy = this.y - this.lastY;
         const angle = -Math.atan2(dy, dx) * 180 / Math.PI + (this.deltaL > 0 ? 0 : 180);
-        this.element.style.transform = `rotate(${angle}deg)`;
+        this.element.style.transform = `rotate(${angle}deg) scale(${1 - this.t * 0.7})`; // Scale down effect
 
         this.lastX = this.x;
         this.lastY = this.y;
